@@ -1,5 +1,6 @@
-import axios from "axios"
-import {SET_ALL_FRANCHISES} from '../types/franchiseTypes'
+import axios from 'axios'
+import {SET_ALL_FRANCHISES} from '../types/franchiseTypes';
+
 
 
 export const setAllFranchise=(franchiseArray)=>({
@@ -9,16 +10,17 @@ export const setAllFranchise=(franchiseArray)=>({
 
 
 
-
 export const requestAllFranchise=()=>{
     return async (dispatch) => {
         try {
-            const res = await axios.get(`${process.env.REACT_APP_API_URL}/franchise`)
+            const res = await axios.get(`${process.env.REACT_APP_API_URL}/franchises`)
             const franchises = res.data
             console.log({franchises});
             dispatch(setAllFranchise(franchises))
+           
         } catch (error) {
             console.log(error)
+           
         }
     }
 }
