@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { Container } from 'react-bootstrap';
+import {requestLogin} from '../redux/actionsCreators/userActionCreators'
 
 
 function Login() {
@@ -11,7 +12,7 @@ function Login() {
     const [password, setPassword] = useState('')
     const handleSubmit = (e) => {
         e.preventDefault()
-        dispatch()
+        dispatch(requestLogin(email,password ))
     }
 
 
