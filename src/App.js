@@ -6,6 +6,8 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
 import {login} from './redux/actionsCreators/userActionCreators'
+import PrivateRoute from './routes/PrivateRoute';
+import PublicRoute from './routes/PublicRoute';
 
 
 
@@ -25,9 +27,9 @@ function App() {
       <Router>
         <div className="App">
           <Switch>
-            <Route exact path='/' component={Home} />
-            <Route exact path='/login' component={Login} />
-            <Route exact path='/profile' component={Profile} />
+            <PublicRoute exact path='/' component={Home} />
+            <PublicRoute exact path='/login' component={Login} />
+            <PrivateRoute exact path='/profile' component={Profile} />
           </Switch>
         </div>
       </Router >
