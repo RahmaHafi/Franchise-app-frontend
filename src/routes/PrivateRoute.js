@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Route, Redirect } from 'react-router-dom';
+import  InsideLayouts from '../layouts/InsideLayouts'
 
 function PrivateRoute({ component: Component, ...rest }) {
     const { isAuth } = useSelector(state => state.users)
@@ -10,7 +11,7 @@ function PrivateRoute({ component: Component, ...rest }) {
             {...rest}
             component ={(props)=>(
                 isAuth 
-                ? <Component {...props}/>
+                ? <InsideLayouts><Component {...props}/></InsideLayouts>
                 : <Redirect to="/login"/>
                
             )}

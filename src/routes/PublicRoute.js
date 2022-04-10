@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Route, Redirect } from 'react-router-dom';
+import OutsideLayouts from '../layouts/OutsideLayouts';
 
 
 function PublicRoute({ component: Component, ...rest }) {
@@ -13,7 +14,7 @@ function PublicRoute({ component: Component, ...rest }) {
             component={(props) => (
                 isAuth
                     ? <Redirect to="/" />
-                    : <Component {...props} />
+                    :<OutsideLayouts> <Component {...props} /> </OutsideLayouts>
             )}
         />
     )

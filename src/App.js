@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Switch } from 'react-router-dom'
 
 import GlobalLoading from './components/GlobalLoading';
 import Home from './pages/Home';
