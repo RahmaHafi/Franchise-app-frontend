@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import {
     CDBSidebar,
     CDBSidebarContent,
@@ -8,7 +8,8 @@ import {
     CDBSidebarFooter,
 } from 'cdbreact';
 import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import{ logout } from '../redux/actionsCreators/userActionCreators';
 
 const LINKS = [
     {
@@ -24,6 +25,7 @@ const LINKS = [
 ]
 
 const SideBar = () => {
+    const dispatch = useDispatch()
     const [links, setLinks] = useState(LINKS)
     const userRoles = useSelector(state => state.users.info.roles)
     useEffect(() => {
@@ -56,12 +58,7 @@ const SideBar = () => {
             </CDBSidebarContent>
 
             <CDBSidebarFooter style={{ textAlign: 'center' }}>
-                <div
-                    className="sidebar-btn-wrapper"
-                    style={{ padding: '20px 5px' }}
-                >
-                    Sidebar Footer
-                </div>
+                <CDBSidebarMenuItem icon="fa fa-lock" onClick={() => dispatch(logout())}>Log Out</CDBSidebarMenuItem>
             </CDBSidebarFooter>
         </CDBSidebar>
     );

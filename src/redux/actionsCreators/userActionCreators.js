@@ -1,13 +1,18 @@
 import axios from 'axios';
 
 import { alertSuccess } from '../../utils/feedback';
-import {LOGIN} from '../types/userTypes';
+import {LOGIN,LOGOUT} from '../types/userTypes';
 import {requestStarted,requestSucceeded,requestFailed} from '../actionsCreators/feedbackActionCreators'
 
 export const login = (user, token) => ({
     type: LOGIN,
     payload: { user, token }
 })
+export const logout = () => {
+    localStorage.removeItem('token')
+    localStorage.removeItem('user')
+    return { type: LOGOUT }
+};
 
 export const requestLogin = (email, password) => {
     return async (dispatch) => {
