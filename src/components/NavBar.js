@@ -1,15 +1,19 @@
-import React from 'react'
+import React from 'react';
 
-import BNavbar from 'react-bootstrap/Navbar'
-import Container from 'react-bootstrap/Container'
-import Nav from 'react-bootstrap/Nav'
-import NavDropdown from 'react-bootstrap/NavDropdown'
+import BNavbar from 'react-bootstrap/Navbar';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+
 
 function NavBar() {
     return (
         <BNavbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
-                <BNavbar.Brand href="#home">React-Bootstrap</BNavbar.Brand>
+                    
+                <BNavbar.Brand href="#home"  >
+                logo
+                </BNavbar.Brand>
                 <BNavbar.Toggle aria-controls="responsive-navbar-nav" />
                 <BNavbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
