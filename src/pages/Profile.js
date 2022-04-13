@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 
 function Profile() {
 
-    const profileDetails = useSelector(state => state.users.info)
+    const profileDetails = useSelector(state => state.user.info)
     return (
         <Container className="mt-5">
             <h1 className='text-center'>Profile</h1>

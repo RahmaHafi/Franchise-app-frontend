@@ -6,7 +6,7 @@ import OutsideLayouts from '../layouts/OutsideLayouts';
 
 function PublicRoute({ component: Component, ...rest }) {
 
-    const { isAuth } = useSelector(state => state.users)
+    const { isAuth } = useSelector(state => state.user)
 
     return (
         <Route

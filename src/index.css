@@ -30,3 +30,6 @@ code {
   justify-content: center;
   align-items: center;
 }
+.style-content{
+  display: flex;
+}

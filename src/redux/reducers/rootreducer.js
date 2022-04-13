@@ -6,7 +6,7 @@ import userReducer from "./userReducer";
  const rootReducer = combineReducers({
     franchises: franchiseReducer,
     feedback:feedbackReducer,
-    users: userReducer
+    user: userReducer
  })
 
  export default rootReducer

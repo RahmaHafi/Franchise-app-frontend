@@ -4,7 +4,7 @@ import { Route, Redirect } from 'react-router-dom';
 import  InsideLayouts from '../layouts/InsideLayouts'
 
 function PrivateRoute({ component: Component, ...rest }) {
-    const { isAuth } = useSelector(state => state.users)
+    const { isAuth } = useSelector(state => state.user)
 
     return (
         <Route
