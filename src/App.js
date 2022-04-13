@@ -11,6 +11,7 @@ import {login} from './redux/actionsCreators/userActionCreators'
 import PrivateRoute from './routes/PrivateRoute';
 import PublicRoute from './routes/PublicRoute';
 import CustomRoute from './routes/CustomRoute';
+import CreateFranchise from './pages/CreateFranchise';
 
 
 
@@ -34,6 +35,7 @@ function App() {
             <PublicRoute exact path='/login' component={Login} />
             <PrivateRoute exact path='/profile' component={Profile} />
             <PrivateRoute exact path='/dashboard' component={Dashboard} />                    
+            <PrivateRoute exact path='/create-franchise' component={CreateFranchise} />                    
             <CustomRoute  component={NotFound} />                    
           </Switch>
         </div>

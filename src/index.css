@@ -33,3 +33,78 @@ code {
 .style-content{
   display: flex;
 }
+.franchise-form{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.form-container{
+  width: 600px;
+  height: 600px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+}
+.form-container .form-header {
+  flex: 20%;
+  display: grid;
+  place-items: center;
+}
+
+.form-container .form-body {
+  flex: 60%;
+}
+
+.form-container .form-footer {
+  flex: 20%;
+  display: flex;
+  justify-content: center;
+}
+.form-container .form-footer button {
+  border-radius: 7px;
+  width: 100px;
+  height: 40px;
+  background-color: #2670B3;
+  font-weight: bold;
+  color: white;
+  border: 0 none;
+  border-radius: 1px;
+  cursor: pointer;
+  padding: 10px 5px;
+  margin: 10px 5px;
+  margin: 5px;
+}
+
+.step-container{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.step-container input {
+  margin: 5px;
+  width: 200px;
+  height: 40px;
+  padding-left: 5px;
+  font-size: 20px;
+}
+.progressbar {
+  width: 400px;
+  height: 10px;
+  background-color: white;
+  margin-bottom: 50px;
+}
+
+.progressbar div {
+  width: 25%;
+  height: 100%;
+  background-color: #2670B3;
+}
