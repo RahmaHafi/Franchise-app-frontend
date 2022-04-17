@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { SET_ALL_FRANCHISES, ADD_FRANCHISE} from '../types/franchiseTypes';
+import { SET_ALL_FRANCHISES, ADD_FRANCHISE,DELETE_FRANCHISE} from '../types/franchiseTypes';
 
 import { requestFailed, requestStarted, requestSucceeded } from './feedbackActionCreators';
 import {alertSuccess } from '../../utils/feedback'
@@ -81,17 +81,36 @@ export const requestCreatingFranchise=(formData,history)=>{
                 dispatch(addFranchise(res.data.franchise))
                 history.push('/dashboard')
             }
-        } catch (err) {
-            console.log({err});
-            let errorMessage = err.message || 'Request failed'            
-            if (err && err.response && err.response.data && err.response.data.error && typeof(err.response.data.error) === 'string') {
-                errorMessage = err.response.data.error
-            }
-            if (err && err.response && err.response.data && err.response.data.error && err.response.data.error.details) {
-                errorMessage = err.response.data.error.details[0] && err.response.data.error.details[0].message
-            }
-            dispatch(requestFailed(errorMessage))
+        } catch (error) {
+            
+            dispatch(requestFailed(error))
         }
+    }
+
+}
+
+export const removeFranchise =(id)=>({
+    type: DELETE_FRANCHISE,
+    payload: id
+})
+
+export const requestDeleteFranchise = (idToDelete)=>{
+    return async(dispatch,getState)=>{
+        const state = getState()
+        const token = state.user.token
+        dispatch(requestStarted())
+        try {
+            const res = await axios.delete(`${process.env.REACT_APP_API_URL}/franchises/${idToDelete}`, { headers: { authorization: token } })
+            dispatch(requestSucceeded())
+            if (res.data && res.data.message) {
+                alertSuccess(res.data.message)
+            }
+            dispatch(removeFranchise(idToDelete)) 
+            dispatch(requestAllFranchise())
+        } catch (error) {
+            dispatch(requestFailed(error))
+        }
+
     }
 
 }
