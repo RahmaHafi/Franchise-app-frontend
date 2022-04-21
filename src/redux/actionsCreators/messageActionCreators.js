@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { requestFailed, requestStarted, requestSucceeded } from './feedbackActionCreators';
-import {ADD_MESSAGE} from '../types/messageTypes';
+import {ADD_MESSAGE,SET_ALL_MESSAGES} from '../types/messageTypes';
 import {alertSuccess } from '../../utils/feedback';
 
 
@@ -18,7 +18,7 @@ export const requestCreatingMessage=(message)=>{
             if (res.data && res.data.message) {
                 alertSuccess (res.data.message)
             }
-            if (res.data && res.data.franchise && res.data.infoMessage._id) {
+            if (res.data && res.data.infoMessage && res.data.infoMessage._id) {
                 dispatch(addMessage(res.data.infoMessage))
                
             }
@@ -28,4 +28,24 @@ export const requestCreatingMessage=(message)=>{
         }
     }
 
+}
+export const setAllMessages = (messages) => ({type: SET_ALL_MESSAGES, payload: messages})
+
+export const requestAllMessages = () => {
+    return async (dispatch, getState) => {
+        const state = getState()
+        const token = state.user.token
+        dispatch(requestStarted())
+        try {
+            const res = await axios.get(`${process.env.REACT_APP_API_URL}/messages`,{headers: {authorization: token}})
+            const messages = res.data
+            console.log(messages);
+            dispatch(setAllMessages(messages))
+            dispatch(requestSucceeded())
+        } catch (error) {
+            console.log(error)
+            dispatch(requestFailed(error))
+
+        }
+    }
 }
