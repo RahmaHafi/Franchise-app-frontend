@@ -4,9 +4,11 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Button from 'react-bootstrap/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { requestAllFranchise, requestDeleteFranchise } from '../redux/actionsCreators/franchiseActionCreators';
+import { useHistory } from 'react-router-dom';
 
 
 function Dashboard() {
+  const history = useHistory()
   const handleDelete = (id) => {
     if (window.confirm("Are you sure you want to delete this franchise?")){
       dispatch(requestDeleteFranchise(id))
@@ -52,7 +54,8 @@ function Dashboard() {
                     >Delete
                     </Button>
                     <Button variant="warning" className="me-1">Update</Button>
-                    <Button variant="success">Details</Button>
+                    
+                    <Button variant="success" onClick={()=> history.push(`/franchises/${f._id}`)}>Details</Button>
                   </ButtonGroup>
                 </td>
               </tr>

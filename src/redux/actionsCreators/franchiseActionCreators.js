@@ -1,14 +1,16 @@
-import axios from 'axios'
-import { SET_ALL_FRANCHISES, ADD_FRANCHISE,DELETE_FRANCHISE} from '../types/franchiseTypes';
+import axios from 'axios';
+import { SET_ALL_FRANCHISES, ADD_FRANCHISE,DELETE_FRANCHISE,SELECT_FRANCHISE} from '../types/franchiseTypes';
 
 import { requestFailed, requestStarted, requestSucceeded } from './feedbackActionCreators';
-import {alertSuccess } from '../../utils/feedback'
+import {alertSuccess } from '../../utils/feedback';
+
+
+
+
 export const setAllFranchise = (franchiseArray) => ({
     type: SET_ALL_FRANCHISES,
     payload: franchiseArray
 })
-
-
 
 export const requestAllFranchise = () => {
     return async (dispatch) => {
@@ -113,4 +115,22 @@ export const requestDeleteFranchise = (idToDelete)=>{
 
     }
 
+}
+
+export const selectFranchise=(franchise)=>({
+    type:SELECT_FRANCHISE,
+    payload: franchise
+})
+export const fetchFranchiseById = (id) => {
+    return async (dispatch) => {
+        dispatch(requestStarted())
+        try {
+            const res = await axios.get(`${process.env.REACT_APP_API_URL}/franchises/${id}`)
+            dispatch(requestSucceeded())
+            const franchise = res.data
+            dispatch(selectFranchise(franchise))
+        } catch (error) {
+            dispatch(requestFailed(error))
+        }
+    }
 }

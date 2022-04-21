@@ -1,8 +1,8 @@
-import {SET_ALL_FRANCHISES,ADD_FRANCHISE,DELETE_FRANCHISE} from '../types/franchiseTypes'
+import {SET_ALL_FRANCHISES,ADD_FRANCHISE,DELETE_FRANCHISE,SELECT_FRANCHISE} from '../types/franchiseTypes'
 
 const initialState={
     all:[],
-    selected:""
+    selected: null
 }
 
 const franchiseReducer=(state = initialState,action)=>{
@@ -13,6 +13,8 @@ const franchiseReducer=(state = initialState,action)=>{
             return { ...state, all: [...state.all, action.payload] };
         case DELETE_FRANCHISE:
             return { ...state, all: state.all.filter(item => item._id !== action.payload)};
+        case SELECT_FRANCHISE:
+            return {...state,selected: action.payload}
     
         default:
             return state;
