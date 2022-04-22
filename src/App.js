@@ -14,6 +14,7 @@ import CustomRoute from './routes/CustomRoute';
 import CreateFranchise from './pages/CreateFranchise';
 import FranchiseDetails from './pages/FranchiseDetails';
 import MessageDetails from './components/MessageDetails';
+import JobForm from './components/JobForm';
 
 
 
@@ -39,6 +40,7 @@ function App() {
             <PrivateRoute exact path='/dashboard' component={Dashboard} />                    
             <PrivateRoute exact path='/create-franchise' component={CreateFranchise} />   
             <PrivateRoute exact path='/message' component={MessageDetails} />   
+            <PrivateRoute exact path='/add-job' component={JobForm} />   
             <CustomRoute path='/franchises/:id' component={FranchiseDetails} />                 
             <CustomRoute  component={NotFound} />                    
           </Switch>

@@ -19,21 +19,21 @@ function MessageDetails() {
                 messages ? (
                     <Row xs={1} md={2} className="g-4">
                         { messages.map((m) => (
-                            <Col key={m._id}>
+                            <Col key={m._id} style={{width:"400px"}}>
                                 <Card >
                                     <Card.Img variant="top" src="holder.js/100px160" />
                                     <i variant="top" className="bi bi-envelope-fill"></i>
+                                    <i className="fa-regular fa-message"></i>
                                     <Card.Body>
-                                        <Card.Title>Expéditeur:{m._id}</Card.Title>
+                                        <Card.Title>Expéditeur: {m.firstName} {m.lastName}</Card.Title>
                                         <div className="contact-info">
-                                            <h6>Email:</h6>
-                                            <h6>Numéro de téléphone:</h6>
+                                            <h6>Email: {m.email}</h6>
+                                            <h6>Numéro de téléphone: {m.phoneNumber}</h6>
                                         </div>
                                         <div className="message-details">
-                                            <h6>Objet:</h6>
+                                            <h6>Objet: {m.subject}</h6>
                                             <Card.Text>
-                                                This is a longer card with supporting text below as a natural
-                                                lead-in to additional content. This content is a little bit longer.
+                                                {m.content}
                                             </Card.Text>
                                         </div>
                                     </Card.Body>
