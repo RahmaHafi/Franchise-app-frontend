@@ -39,7 +39,7 @@ export const requestAllMessages = () => {
         try {
             const res = await axios.get(`${process.env.REACT_APP_API_URL}/messages`,{headers: {authorization: token}})
             const messages = res.data
-            console.log(messages);
+            console.log({messages});
             dispatch(setAllMessages(messages))
             dispatch(requestSucceeded())
         } catch (error) {
