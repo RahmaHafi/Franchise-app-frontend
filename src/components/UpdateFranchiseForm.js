@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
-import {useDispatch}from 'react-redux'
-import {useHistory} from 'react-router-dom'
+import React, { useState , useEffect} from 'react';
+import {useDispatch, useSelector}from 'react-redux'
+import {useHistory,useParams} from 'react-router-dom'
 import BasicFranchiseInfo from './BasicFranchiseInfo';
 import FranchiseContactDetails from './FranchiseContactDetails';
 import TypicalFranchisee from './TypicalFranchisee';
 import AccessToTheNetwork from './AccessToTheNetwork';
-import {requestCreatingFranchise} from '../redux/actionsCreators/franchiseActionCreators'
+import {fetchFranchiseById, requestUpdatingFranchise} from '../redux/actionsCreators/franchiseActionCreators'
 
-function FranchiseForm() {
-
+function UpdateFranchiseForm() {
+  const {id} = useParams()
   const dispatch = useDispatch()
   const history = useHistory()
+  const selectedFranchise= useSelector(state => state.franchises.selected)
   const [page, setPage] = useState(0)
   const franchiseFormTitles = ["Basic Franchise Information", "Contact Details", "Typical Franchisee", "Access to the Network"]
   const [formData, setFormData] = useState({
@@ -51,18 +52,27 @@ function FranchiseForm() {
   })
   const pageDisplay = () => {
     if (page === 0) {
-      return <BasicFranchiseInfo formData={formData} setFormData={setFormData} />
+      return formData ? <BasicFranchiseInfo formData={formData} setFormData={setFormData} /> : <h1>nth</h1>
     }
     if (page === 1) {
-      return <FranchiseContactDetails formData={formData} setFormData={setFormData} />
+      return formData ? <FranchiseContactDetails formData={formData} setFormData={setFormData} /> : null
     }
     if (page === 2) {
-      return <TypicalFranchisee formData={formData} setFormData={setFormData} />
+      return formData? <TypicalFranchisee formData={formData} setFormData={setFormData} /> : null
     }
     if (page === 3) {
-      return <AccessToTheNetwork formData={formData} setFormData={setFormData} />
+      return formData ? <AccessToTheNetwork formData={formData} setFormData={setFormData} /> : null
     }
   }
+  useEffect(()=>{
+    if(selectedFranchise){
+      setFormData(selectedFranchise) 
+    }
+  },[selectedFranchise])
+
+  useEffect(()=>{
+    dispatch(fetchFranchiseById(id))
+  },[dispatch, id])
 
   return (
 
@@ -91,13 +101,13 @@ function FranchiseForm() {
             onClick={() => {
               if (page === franchiseFormTitles.length - 1) {
                 console.log(formData)
-                dispatch(requestCreatingFranchise(formData,history))
+                dispatch(requestUpdatingFranchise(id,formData,history))
               } else {
                 setPage(currPage => currPage + 1)
               }
 
             }}>
-            {page === franchiseFormTitles.length - 1 ? 'Submit' : 'Next Step'}
+            {page === franchiseFormTitles.length - 1 ? 'Update' : 'Next Step'}
           </button>
         </div>
       </div>
@@ -105,4 +115,4 @@ function FranchiseForm() {
   )
 }
 
-export default FranchiseForm
+export default UpdateFranchiseForm

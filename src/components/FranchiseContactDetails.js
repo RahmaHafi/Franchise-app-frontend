@@ -6,58 +6,59 @@ function FranchiseContactDetails({ formData, setFormData }) {
       <input
         type="text"
         placeholder='Adress'
-        value={formData.adress}
+        value={formData.contactDetails.adress}
         onChange={(e) =>
-          setFormData({ ...formData, adress: e.target.value })
+          setFormData(prevFormData => ({ ...prevFormData, contactDetails: { ...prevFormData.contactDetails,adress: e.target.value }  }))
+
         } />
       <input
         type="text"
         placeholder='Country'
-        value={formData.country}
+        value={formData.contactDetails.country}
         onChange={(e) =>
-          setFormData({ ...formData, country: e.target.value })
+          setFormData(prevFormData => ({ ...prevFormData, contactDetails: { ...prevFormData.contactDetails,country: e.target.value }  }))
         } />
       <input
         type="text"
         placeholder='Phone'
-        value={formData.phone}
+        value={formData.contactDetails.phone}
         onChange={(e) =>
-          setFormData({ ...formData, phone: e.target.value })
+          setFormData(prevFormData => ({ ...prevFormData, contactDetails: { ...prevFormData.contactDetails,phone: e.target.value }  }))
         } />
       <input
         type="email"
         placeholder='Email'
-        value={formData.email}
+        value={formData.contactDetails.email}
         onChange={(e) =>
-          setFormData({ ...formData, email: e.target.value })
+          setFormData(prevFormData => ({ ...prevFormData, contactDetails: { ...prevFormData.contactDetails,email: e.target.value }  }))
         } />
       <input
         type="text"
         placeholder='Website Url'
-        value={formData.webSiteUrl}
+        value={formData.contactDetails.webSiteUrl}
         onChange={(e) =>
-          setFormData({ ...formData, webSiteUrl: e.target.value })
+          setFormData(prevFormData => ({ ...prevFormData, contactDetails: { ...prevFormData.contactDetails,webSiteUrl: e.target.value }  }))
         } />
       <input
         type="text"
         placeholder='Capital'
-        value={formData.capital}
+        value={formData.contactDetails.capital}
         onChange={(e) =>
-          setFormData({ ...formData, capital: e.target.value })
+          setFormData(prevFormData => ({ ...prevFormData, contactDetails: { ...prevFormData.contactDetails,capital: e.target.value }  }))
         } />
       <input
         type="text"
         placeholder='Commercial Registerl'
-        value={formData.commercialRegisterl}
+        value={formData.contactDetails.commercialRegister}
         onChange={(e) =>
-          setFormData({ ...formData, commercialRegisterl: e.target.value })
+          setFormData(prevFormData => ({ ...prevFormData, contactDetails: { ...prevFormData.contactDetails,commercialRegister: e.target.value }  }))
         } />
       <input
         type="text"
         placeholder='Year Of Creation Of The Network'
-        value={formData.yearOfCreationOfTheNetwork}
+        value={formData.contactDetails.yearOfCreationOfTheNetwork}
         onChange={(e) =>
-          setFormData({ ...formData, yearOfCreationOfTheNetwork: e.target.value })
+          setFormData(prevFormData => ({ ...prevFormData, contactDetails: { ...prevFormData.contactDetails,yearOfCreationOfTheNetwork: e.target.value }  }))
         } />
     </div>
 

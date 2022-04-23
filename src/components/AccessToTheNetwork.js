@@ -6,44 +6,44 @@ function AccessToTheNetwork({ formData, setFormData }) {
       <input
         type="text"
         placeholder='Contract Duration'
-        value={formData.contractDuration}
+        value={formData.accessToTheNetwork.contractDuration}
         onChange={(e) =>
-          setFormData({ ...formData, contractDuration: e.target.value })
+          setFormData(prevFormData => ({ ...prevFormData, accessToTheNetwork: { ...prevFormData.accessToTheNetwork,contractDuration: e.target.value }  }))
         } />
       <input
         type="text"
         placeholder='Entrance Fees'
-        value={formData.entranceFees}
+        value={formData.accessToTheNetwork.entranceFees}
         onChange={(e) =>
-          setFormData({ ...formData, entranceFees: e.target.value })
+          setFormData(prevFormData => ({ ...prevFormData, accessToTheNetwork: { ...prevFormData.accessToTheNetwork,entranceFees: e.target.value }  }))
         } />
       <input
         type="text"
         placeholder='Direct Royalties'
-        value={formData.directRoyalties}
+        value={formData.accessToTheNetwork.directRoyalties}
         onChange={(e) =>
-          setFormData({ ...formData, directRoyalties: e.target.value })
+          setFormData(prevFormData => ({ ...prevFormData, accessToTheNetwork: { ...prevFormData.accessToTheNetwork,directRoyalties: e.target.value }  }))
         } />
       <input
         type="text"
         placeholder='Indirect Royalties'
-        value={formData.indirectRoyalties}
+        value={formData.accessToTheNetwork.indirectRoyalties}
         onChange={(e) =>
-          setFormData({ ...formData, indirectRoyalties: e.target.value })
+          setFormData(prevFormData => ({ ...prevFormData, accessToTheNetwork: { ...prevFormData.accessToTheNetwork,indirectRoyalties: e.target.value }  }))
         } />
       <textarea
         type="text"
         placeholder='Other Bonds'
-        value={formData.otherBonds}
+        value={formData.accessToTheNetwork.otherBonds}
         onChange={(e) =>
-          setFormData({ ...formData, otherBonds: e.target.value })
+          setFormData(prevFormData => ({ ...prevFormData, accessToTheNetwork: { ...prevFormData.accessToTheNetwork,otherBonds: e.target.value }  }))
         } />
       <textarea
         type="text"
         placeholder='Offered Training Duration'
-        value={formData.offeredTrainingDuration}
+        value={formData.accessToTheNetwork.offeredTrainingDuration}
         onChange={(e) =>
-          setFormData({ ...formData, offeredTrainingDuration: e.target.value })
+          setFormData(prevFormData => ({ ...prevFormData, accessToTheNetwork: { ...prevFormData.accessToTheNetwork,offeredTrainingDuration: e.target.value }  }))
         } />
 
     </div>

@@ -53,10 +53,11 @@ function Dashboard() {
                       onClick={() => handleDelete(f._id)}
                     >Delete
                     </Button>
-                    <Button variant="warning" className="me-1">Update</Button>
+                    <Button variant="warning" className="me-1"onClick={()=> history.push(`/update-franchise/${f._id}`)}>Update</Button>
                     
                     <Button variant="success" onClick={()=> history.push(`/franchises/${f._id}`)}>Details</Button>
                   </ButtonGroup>
+                    <button className='btn btn-success'>Details2</button>
                 </td>
               </tr>
 

@@ -22,8 +22,9 @@ function MessageDetails() {
                             <Col key={m._id} style={{width:"400px"}}>
                                 <Card >
                                     <Card.Img variant="top" src="holder.js/100px160" />
-                                    <i variant="top" className="bi bi-envelope-fill"></i>
-                                    <i className="fa-regular fa-message"></i>
+                                    {/* <i variant="top" className="bi bi-envelope-fill"></i>
+                                    <i className="fa-regular fa-message"></i> */}
+                                    <i class="bi bi-balloon-heart-fill"></i>
                                     <Card.Body>
                                         <Card.Title>Expéditeur: {m.firstName} {m.lastName}</Card.Title>
                                         <div className="contact-info">

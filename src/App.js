@@ -12,6 +12,7 @@ import PrivateRoute from './routes/PrivateRoute';
 import PublicRoute from './routes/PublicRoute';
 import CustomRoute from './routes/CustomRoute';
 import CreateFranchise from './pages/CreateFranchise';
+import UpdateFranchis from './pages/UpdateFranchise';
 import FranchiseDetails from './pages/FranchiseDetails';
 import MessageDetails from './components/MessageDetails';
 import JobForm from './components/JobForm';
@@ -39,6 +40,7 @@ function App() {
             <PrivateRoute exact path='/profile' component={Profile} />
             <PrivateRoute exact path='/dashboard' component={Dashboard} />                    
             <PrivateRoute exact path='/create-franchise' component={CreateFranchise} />   
+            <PrivateRoute exact path='/update-franchise/:id' component={UpdateFranchis} />   
             <PrivateRoute exact path='/message' component={MessageDetails} />   
             <PrivateRoute exact path='/add-job' component={JobForm} />   
             <CustomRoute path='/franchises/:id' component={FranchiseDetails} />                 

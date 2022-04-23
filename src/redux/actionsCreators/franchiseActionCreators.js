@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { SET_ALL_FRANCHISES, ADD_FRANCHISE,DELETE_FRANCHISE,SELECT_FRANCHISE} from '../types/franchiseTypes';
+import { SET_ALL_FRANCHISES, ADD_FRANCHISE,DELETE_FRANCHISE,SELECT_FRANCHISE,UPDATE_FRANCHISE} from '../types/franchiseTypes';
 
 import { requestFailed, requestStarted, requestSucceeded } from './feedbackActionCreators';
 import {alertSuccess } from '../../utils/feedback';
@@ -35,46 +35,46 @@ export const requestCreatingFranchise=(formData,history)=>{
         const state = getState()
         const token = state.user.token
         dispatch(requestStarted())
-        const reqBody = {
-            basicFranchiseInfo: {
-                franchiseLogoUrl: formData.franchiseLogoUrl,
-                franchiseName: formData.franchiseName,
-                sector: formData.sector,
-                yearOfCreation: formData.yearOfCreation,
-                numberOfUnities: formData.numberOfUnities
-            },
-            contactDetails: {
-                adress: formData.adress,
-                country: formData.country,
-                phone: formData.phone,
-                email:formData.email,
-                webSiteUrl:formData.webSiteUrl,
-                capital: formData.capital,
-                commercialRegister: formData.commercialRegister,
-                yearOfCreationOfTheNetwork: formData.yearOfCreationOfTheNetwork
-            },
-            typicalFranchisee: {
-                populationOfCatchment:formData.populationOfCatchment,
-                locationQuality: formData.locationQuality,
-                averageStoreArea: formData.averageStoreArea,
-                annualTurnover: formData.annualTurnover,
-                personalContribution:formData.personalContribution,
-                investment:formData.investment,
-                profile:formData.profile
+        // const reqBody = {
+        //     basicFranchiseInfo: {
+        //         franchiseLogoUrl: formData.franchiseLogoUrl,
+        //         franchiseName: formData.franchiseName,
+        //         sector: formData.sector,
+        //         yearOfCreation: formData.yearOfCreation,
+        //         numberOfUnities: formData.numberOfUnities
+        //     },
+        //     contactDetails: {
+        //         adress: formData.adress,
+        //         country: formData.country,
+        //         phone: formData.phone,
+        //         email:formData.email,
+        //         webSiteUrl:formData.webSiteUrl,
+        //         capital: formData.capital,
+        //         commercialRegister: formData.commercialRegister,
+        //         yearOfCreationOfTheNetwork: formData.yearOfCreationOfTheNetwork
+        //     },
+        //     typicalFranchisee: {
+        //         populationOfCatchment:formData.populationOfCatchment,
+        //         locationQuality: formData.locationQuality,
+        //         averageStoreArea: formData.averageStoreArea,
+        //         annualTurnover: formData.annualTurnover,
+        //         personalContribution:formData.personalContribution,
+        //         investment:formData.investment,
+        //         profile:formData.profile
         
-            },
-            accessToTheNetwork: {
-                contractDuration: formData.contractDuration,
-                entranceFees:formData.entranceFees,
-                directRoyalties:formData.directRoyalties,
-                indirectRoyalties:formData.indirectRoyalties,
-                otherBonds:formData.otherBonds,
-                offeredTrainingDuration:formData.offeredTrainingDuration
-            }
+        //     },
+        //     accessToTheNetwork: {
+        //         contractDuration: formData.contractDuration,
+        //         entranceFees:formData.entranceFees,
+        //         directRoyalties:formData.directRoyalties,
+        //         indirectRoyalties:formData.indirectRoyalties,
+        //         otherBonds:formData.otherBonds,
+        //         offeredTrainingDuration:formData.offeredTrainingDuration
+        //     }
 
-        }
+        // }
         try {
-            const res = await axios.post(`${process.env.REACT_APP_API_URL}/franchises`,reqBody, {headers: {authorization: token}})            
+            const res = await axios.post(`${process.env.REACT_APP_API_URL}/franchises`,formData, {headers: {authorization: token}})            
             dispatch(requestSucceeded())
             if (res.data && res.data.message) {
                 alertSuccess (res.data.message)
@@ -131,6 +131,37 @@ export const fetchFranchiseById = (id) => {
             dispatch(selectFranchise(franchise))
         } catch (error) {
             dispatch(requestFailed(error))
+        }
+    }
+}
+
+export const updateFranchise = (itemId, data) => ({
+     type: UPDATE_FRANCHISE,
+      payload: { id: itemId, data }
+    
+     });
+
+export const requestUpdatingFranchise = (id,formData,history) => {
+    return async (dispatch, getState) => {
+        const state = getState()
+        const token = state.user.token
+        dispatch(requestStarted())
+        try {
+            formData._id = undefined
+            formData.user = undefined
+            formData.__v = undefined
+            const res = await axios.put(`${process.env.REACT_APP_API_URL}/franchises/${id}`,formData, {headers: {authorization: token}})
+            dispatch(requestSucceeded())
+            console.log('====================================');
+            console.log(res.data);
+            console.log('====================================');
+            if (res.data && res.data.message) {
+                alertSuccess(res.data.message)
+                history.push('/dashboard')
+            }
+            dispatch(updateFranchise(id,res.data.franchiseToUpdate))
+        } catch (err) {
+            dispatch(requestFailed(err))
         }
     }
 }
