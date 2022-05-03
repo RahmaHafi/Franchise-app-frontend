@@ -25,48 +25,48 @@ function MessageForm({franchiseId}) {
   return (
     <div>
       <Form onSubmit={handleSubmit}>
-        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-          <Form.Label>Prénom</Form.Label>
+        <Form.Group className="mb-3 mx-3" controlId="exampleForm.ControlInput1">
+          <Form.Label className="fw-bold">Prénom</Form.Label>
           <Form.Control
             type="text"
             value={message.firstName}
             onChange={(e) => setMessage({ ...message, firstName: e.target.value })}
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-          <Form.Label>Nom</Form.Label>
+        <Form.Group className="mb-3 mx-3" controlId="exampleForm.ControlInput1">
+          <Form.Label className="fw-bold">Nom</Form.Label>
           <Form.Control
             type="text"
             value={message.lastName}
             onChange={(e) => setMessage({ ...message, lastName: e.target.value })}
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-          <Form.Label>Email</Form.Label>
+        <Form.Group className="mb-3 mx-3" controlId="exampleForm.ControlInput1">
+          <Form.Label className="fw-bold">Email</Form.Label>
           <Form.Control
             type="email"
             value={message.email}
             onChange={(e) => setMessage({ ...message, email: e.target.value })}
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-          <Form.Label>Numéro de téléphone</Form.Label>
+        <Form.Group className="mb-3 mx-3" controlId="exampleForm.ControlInput1">
+          <Form.Label className="fw-bold">Numéro de téléphone</Form.Label>
           <Form.Control
             type="number"
             value={message.phoneNumber}
             onChange={(e) => setMessage({ ...message, phoneNumber: e.target.value })}
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-          <Form.Label>Objet</Form.Label>
+        <Form.Group className="mb-3 mx-3" controlId="exampleForm.ControlInput1">
+          <Form.Label className="fw-bold">Objet</Form.Label>
           <Form.Control
             type="text"
             value={message.subject}
             onChange={(e) => setMessage({ ...message, subject: e.target.value })}
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-          <Form.Label>Contenu</Form.Label>
+        <Form.Group className="mb-3 mx-3" controlId="exampleForm.ControlTextarea1">
+          <Form.Label className="fw-bold">Contenu</Form.Label>
           <Form.Control
             as="textarea"
             rows={3}
@@ -74,8 +74,8 @@ function MessageForm({franchiseId}) {
             onChange={(e) => setMessage({ ...message, content: e.target.value })}
           />
         </Form.Group>
-        <div className="d-grid gap-2">
-          <Button variant="primary" size="lg" type="submit">
+        <div className="d-grid gap-2 mx-3 mb-1">
+          <Button  className="send-message-btn" size="lg" type="submit">
             Send message
           </Button>
         </div>

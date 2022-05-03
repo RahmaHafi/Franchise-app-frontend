@@ -9,7 +9,7 @@ import { NavLink } from 'react-router-dom';
 
 function NavBar() {
     return (
-        <BNavbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <BNavbar collapseOnSelect expand="lg" bg="dark" variant="dark" className="py-4">
             <Container>
 
                 <BNavbar.Brand href="#home"  >

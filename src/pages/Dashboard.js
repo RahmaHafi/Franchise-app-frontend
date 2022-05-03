@@ -22,8 +22,8 @@ function Dashboard() {
   }, [dispatch])
 
   return (
-    <div>
-      <h1>Dashboard hello</h1>
+    <div className='franchise-table'>
+      <h1 className='dashbord-title'>Liste des enseignes</h1>
       <Table striped bordered hover variant="light">
         <thead>
           <tr>
@@ -57,7 +57,7 @@ function Dashboard() {
                     
                     <Button variant="success" onClick={()=> history.push(`/franchises/${f._id}`)}>Details</Button>
                   </ButtonGroup>
-                    <button className='btn btn-success'>Details2</button>
+                    
                 </td>
               </tr>
 

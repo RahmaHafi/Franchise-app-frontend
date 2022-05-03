@@ -3,7 +3,8 @@ import { useDispatch } from 'react-redux';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { Container } from 'react-bootstrap';
-import {requestLogin} from '../redux/actionsCreators/userActionCreators'
+import {requestLogin} from '../redux/actionsCreators/userActionCreators';
+import login from '../images/login.svg';
 
 
 function Login() {
@@ -17,9 +18,11 @@ function Login() {
 
 
     return (
-        <Container className="mt-5">
+        <div className="sign-up-containet">
+        <Container className="my-5  mx-2">
+            <h2 className='login-title'>SE CONNECTER</h2>
             <Form onSubmit={handleSubmit}>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Group className="mb-3 " controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control
                         type="email"
@@ -39,11 +42,13 @@ function Login() {
                     />
                 </Form.Group>
 
-                <Button variant="primary" type="submit">
+                <Button type="submit" className="rounded-pill btn-login">
                     Submit
                 </Button>
             </Form>
         </Container>
+        <img src={login} alt="" />
+        </div>
     )
 }
 

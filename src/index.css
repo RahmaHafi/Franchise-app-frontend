@@ -1,16 +1,20 @@
 body {
+
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  padding: 0;
+  box-sizing: border-box;
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    sans-serif; */
+    font-family: 'Roboto';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+/* 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
+} */
 .toast-success div {
   background-color: green;
 }
@@ -30,9 +34,9 @@ code {
   justify-content: center;
   align-items: center;
 }
-.style-content{
+/* .style-content{
   display: flex;
-}
+} */
 .franchise-form{
   width: 100%;
   height: 100%;
@@ -40,10 +44,11 @@ code {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-left: 200px;
 }
 .form-container{
-  width: 600px;
-  height: 600px;
+  width: 50vw;
+  height: 80vh;
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
@@ -79,6 +84,9 @@ code {
   margin: 10px 5px;
   margin: 5px;
 }
+.form-button{
+  border-radius: 10px;
+}
 
 .step-container{
   height: 100%;
@@ -97,20 +105,230 @@ code {
   font-size: 20px;
 }
 .progressbar {
+  margin-top: 10px;
   width: 400px;
   height: 10px;
   background-color: white;
   margin-bottom: 50px;
+  border-radius: 3px;
 }
 
 .progressbar div {
   width: 25%;
   height: 100%;
-  background-color: #2670B3;
+  background-color: #ECB529;
+  border-radius: 3px;
+}
+.step-container input{
+  width: 60%;
+}
+.step-container textarea{
+  width: 60%;
 }
 .drop-down{
   background-color:#212529;
 }
 th{
   text-align: center;
+}
+
+/* Footer*/
+.footer-content{
+  display: flex;
+  flex-direction: column;
+ 
+  background-color: #212529;
+}
+.footer-items{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.footer-content a{
+text-decoration: none;
+color: white;
+}
+.footer-content h5{
+  color:#ECB529;
+}
+.footer-content ul{
+  list-style-type: none;
+
+}
+.media{
+  margin-top: 20px;
+  
+ 
+}
+.media i{
+  color: #ECB529;
+  margin-right: 20px; 
+}
+.footer-item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center */
+}
+.footer-copyright{
+  color:white;
+  text-align: center;
+}
+/*Carousel */
+
+.caroucel-labes{
+  color: #ECB529;
+  font-size: 80px;
+}
+
+
+#carousel.carousel-item img{
+object-fit: cover;
+object-position:center;
+height: 100vh;
+overflow: hidden;
+
+}
+.carousel-inner {
+  height: calc(100vh - 88px);
+}
+
+/* Sign up page */
+.sign-up-containet{
+  background-color: #2670B3;
+  /* width: 100%; */
+  height:calc(100vh - 88px);
+  padding-left:20px ;
+  padding-right:20px ;
+  display: flex;
+  flex-direction: row;
+}
+.btn-login{
+  background-color: #ECB529;
+  width: 300px;
+  font-size:large ;
+  text-align: center;
+}
+.btn-login:hover{
+  background-color: #ECB529;
+
+}
+.login-title{
+ color: #ECB529;
+}
+/*Dashboard*/
+.style-content{
+  margin-top: 0;
+  background-color: #2670B3;
+  display: flex;
+}
+.dashbord-title{
+  color: #ECB529;
+  margin-bottom: 50px;
+}
+.franchise-table{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 250px;
+}
+/* profile Table*/
+.profile-table{
+  width: 50vw;
+}
+.profile-table-container .text-center{
+  color: #ECB529;
+}
+.profile-table-container{
+  width: calc(100vw -320px) ;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 250px;
+}
+/* franchise details*/
+.franchise-details-container{
+  width: calc(100vw -320px) ;
+  margin-left: 250px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* border:1px solid #212529; */
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+}
+.header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.header img{
+  /* width: 300px;
+  height: 300px; */
+  /* border-radius: 50%; */
+}
+.franchise-data{
+  display: flex;
+  justify-items: center;
+  justify-content: space-between;
+  margin-bottom: 60px;
+  
+}
+#frachise-creation{
+  width: 200px;
+  height: 60px;
+ 
+}
+#frachise-creation h4{
+
+font-size: 24px;
+text-align: center;
+}
+#frachise-creation h1{
+color: #ECB529;
+text-align: center;
+}
+.franchise-body h2{
+  color: #2670B3;
+}
+.message-to-send h2{
+  color: #2670B3;
+}
+.send-message-btn{
+  background-color: #ECB529;
+}
+/*message details*/
+
+.message-content{
+  background-color: rgba(236,181, 41, 0.2);
+  border-radius: 2px;
+}
+
+/*Job fom*/
+.job-form{
+  display: flex;
+}
+.job-container{
+  display: flex;
+  flex: 1;
+  justify-content: space-around;
+}
+.job-form-column{
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.job-container h1{
+color: #ECB529;
+}
+/* not found page*/
+.not-found-page-image{
+  width:  calc(100vw -320px) ;
+  display: flex;
+  flex-direction: column;
+  padding-left: 100px;
 }

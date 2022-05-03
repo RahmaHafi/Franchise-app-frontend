@@ -4,6 +4,7 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import { useDispatch, useSelector } from 'react-redux';
 import { requestAllMessages } from '../redux/actionsCreators/messageActionCreators';
+import message from '../images/message.svg'
 
 function MessageDetails() {
     const dispatch = useDispatch()
@@ -17,23 +18,23 @@ function MessageDetails() {
         <>
             {
                 messages ? (
-                    <Row xs={1} md={2} className="g-4">
-                        { messages.map((m) => (
-                            <Col key={m._id} style={{width:"400px"}}>
+                    <Row xs={1} md={2} className="g-4 message-card">
+                        {messages.map((m) => (
+                            <Col key={m._id} style={{ width: "400px" }}>
                                 <Card >
-                                    <Card.Img variant="top" src="holder.js/100px160" />
-                                    {/* <i variant="top" className="bi bi-envelope-fill"></i>
-                                    <i className="fa-regular fa-message"></i> */}
-                                    <i class="bi bi-balloon-heart-fill"></i>
+                                    <Card.Img variant="top" src={message} style={{ width: "100%", height: "200px" }} />
+
+                                   
                                     <Card.Body>
-                                        <Card.Title>Expéditeur: {m.firstName} {m.lastName}</Card.Title>
+                                        
+                                        <Card.Title> <i class="bi bi-send-fill"></i>Expéditeur: {m.firstName} {m.lastName}</Card.Title>
                                         <div className="contact-info">
-                                            <h6>Email: {m.email}</h6>
-                                            <h6>Numéro de téléphone: {m.phoneNumber}</h6>
+                                            <h6><i class="bi bi-envelope-fill"></i>Email: {m.email}</h6>
+                                            <h6><i class="bi bi-telephone-fill"></i>Numéro de téléphone: {m.phoneNumber}</h6>
                                         </div>
                                         <div className="message-details">
-                                            <h6>Objet: {m.subject}</h6>
-                                            <Card.Text>
+                                            <h6><i class="bi bi-mailbox"></i>Objet: {m.subject}</h6>
+                                            <Card.Text className="message-content">
                                                 {m.content}
                                             </Card.Text>
                                         </div>

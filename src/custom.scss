@@ -1,10 +1,8 @@
-/* The following block can be included in a custom.scss */
-
-/* make the customizations */
-$theme-colors: (
-    "info": tomato,
-    "danger": teal
-);
-
-/* import bootstrap to set changes */
-@import "~bootstrap/scss/bootstrap";
+$primary:#86CDCF;
+$secondary:#46708A;
+$font-family-sans-serif:'Poppins', sans-serif;
+$btn-border-radius:10px;
+$btn-font-weight:600;
+$btn-font-size:18px;
+$btn-line-height:21.78px;
+@import 'bootstrap/scss/bootstrap.scss';

@@ -3,9 +3,9 @@ import SideBar from '../components/SideBar'
 
 function InsideLayouts(props) {
     return (
-        <div className='style-content'>
+        <div className='style-content' >
             <SideBar />
-            <div>
+            <div style={{ flex: 1, display: "flex", justifyContent: "center", flexDirection: "row", alignItems: "center" }}>
                 {props.children}
             </div>
         </div>

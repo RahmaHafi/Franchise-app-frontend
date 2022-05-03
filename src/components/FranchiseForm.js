@@ -79,14 +79,14 @@ function FranchiseForm() {
         <div className="form-body">{pageDisplay()} </div>
 
         <div className="form-footer">
-          <button
+          <button className="form-button"
             disabled={page === 0}
             onClick={() => {
               setPage(currPage => currPage - 1)
             }}>
             Prev Step
           </button>
-          <button
+          <button className="form-button"
             
             onClick={() => {
               if (page === franchiseFormTitles.length - 1) {
