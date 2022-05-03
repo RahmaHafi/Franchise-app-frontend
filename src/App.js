@@ -16,6 +16,7 @@ import UpdateFranchis from './pages/UpdateFranchise';
 import FranchiseDetails from './pages/FranchiseDetails';
 import MessageDetails from './components/MessageDetails';
 import JobForm from './components/JobForm';
+import ExpertsAccordion from './components/ExpertsAccordion';
 
 
 
@@ -43,6 +44,7 @@ function App() {
             <PrivateRoute exact path='/update-franchise/:id' component={UpdateFranchis} />   
             <PrivateRoute exact path='/message' component={MessageDetails} />   
             <PrivateRoute exact path='/add-job' component={JobForm} />   
+            <PrivateRoute exact path='/experts' component={ExpertsAccordion} />   
             <CustomRoute path='/franchises/:id' component={FranchiseDetails} />                 
             <CustomRoute  component={NotFound} />                    
           </Switch>

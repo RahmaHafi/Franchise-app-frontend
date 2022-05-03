@@ -332,3 +332,9 @@ color: #ECB529;
   flex-direction: column;
   padding-left: 100px;
 }
+/*experts page*/
+.expert-accordion-header{
+  width:100%;
+  display: flex;
+  justify-content: space-between;
+}
